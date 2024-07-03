@@ -132,12 +132,12 @@
 }
 
 .was-validated .form-check-input:checked + .form-check-label {
-  color: green;
+  color: rgb(41, 0, 128);
 }
 
 .was-validated .form-check-input:not(:checked) {
   background-color: #fff; 
-  border-color: #ced4da;
+  border-color: #272a2d;
 }
 
 #pass:valid, #pass.is-valid,
