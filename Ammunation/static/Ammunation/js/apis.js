@@ -1,4 +1,4 @@
-// api clipboard
+
 function copiarEmail() {
     const email = document.getElementById('mail').innerText;
     const iconoCopiar = document.getElementById('iconoCopiar');
@@ -50,44 +50,3 @@ function copiarTelefono() {
         });
 }
 
-//api gato random
-const url = "https://api.thecatapi.com/v1/images/search";
-const section = document.querySelector(".container");
-const button = document.querySelector(".btn");
-
-button.addEventListener("click", getRandomCats);
-
-randomCatPhoto = (json) => {
-    let photo = json[0].url;
-    section.classList.add("cats");
-
-    // Verifica si ya existe una imagen y la elimina
-    const existingImage = document.querySelector(".random_cats");
-    if (existingImage) {
-        section.removeChild(existingImage);
-    }
-
-    let image = document.createElement("img");
-    image.src = photo;
-    image.classList.add("random_cats");
-    // Texto alternativo descriptivo para la imagen
-    image.alt = "Foto aleatoria de un gato";
-    section.appendChild(image);
-};
-
-async function getRandomCats() {
-    section.innerHTML = "";
-    try {
-        const response = await fetch(url);
-        const json = await response.json();
-        console.log("JSON:", json);
-        return randomCatPhoto(json);
-    } catch (e) {
-        // Muestra un mensaje de error en la interfaz de usuario
-        const errorMessage = document.createElement("p");
-        errorMessage.textContent = "Error, el gatito no se puede mostrar en este momento.";
-        section.appendChild(errorMessage);
-        console.log("Error, el gatito no se puede mostrar");
-        console.log(e);
-    }
-}

@@ -7,7 +7,7 @@
 {% if perms.Ammunation.add_user %}
     <!-- Lista de usuarios -->
     <div class="container mt-3">
-        <p class="mb-0 display-5">Opciones de administrador / Usuarios</p>
+        <p class="mb-0 display-5">Usuarios</p>
         <div class="btn-group my-4">
             <a href="{% url 'administrador' %}" class="btn btn-outline-dark mx-1">Administrar usuarios</a>
             <a href="{% url 'adminGuns' %}" class="btn btn-outline-dark mx-1">Administrar armas</a>
@@ -45,8 +45,8 @@
                             <td>{{ usuario.direccion }}</td>
                             <td>{{ usuario.date_joined }}</td>
                             <td class="text-center">
-                                <a href="{% url 'editarusuario' usuario.id_usuario %}" class="btn btn-success btn-sm mx-1"><i class="bi bi-pencil-square"></i> Editar</a>
-                                <a href="{% url 'deleteUser' usuario.id_usuario %}" class="btn btn-danger btn-sm mx-1"><i class="bi bi-trash"></i> Eliminar</a>
+                                <a href="{% url 'editarusuario' usuario.id_usuario %}" class="btn btn-success btn-sm mx-1"><i></i> Editar</a>
+                                <a href="{% url 'deleteUser' usuario.id_usuario %}" class="btn btn-danger btn-sm mx-1"><i></i> Eliminar</a>
                             </td>
                         </tr>
                     {% endfor %}

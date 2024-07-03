@@ -1,4 +1,4 @@
-{%load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 
@@ -16,9 +16,26 @@
     {% block importscss %}
 
     {% endblock importscss %}
+    <style>
+        .text-red {
+            color: red !important;
+        }
+        .navbar-nav .nav-link {
+            color: red !important;
+        }
+        .user-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .user-icons .cart {
+            font-size: 1.5em;
+            margin-left: 15px;
+        }
+    </style>
 </head>
 
-<body style="background-color: #eee;"">
+<body style="background-color: #eee;">
    <!-- Encabezado (navbar) -->    
     <nav class="navbar navbar-expand-md bg-dark">
         <div class="container-fluid">
@@ -32,40 +49,35 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active text-white" aria-current="page" href="{% url 'index' %}">Inicio</a>
+                        <a class="nav-link text-red active" aria-current="page" href="{% url 'index' %}">Inicio</a>
                     </li>
                     {% if perms.Ammunation.add_arma %}
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{% url 'administrador' %}">Admin</a>
+                            <a class="nav-link text-red" href="{% url 'administrador' %}">Admin</a>
                         </li>
                     {% endif %}
                     {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{% url "userProfile" %}">Hola <div class="text-primary">{{user.username}}</div></a>
+                            <a class="nav-link text-red" href="{% url "userProfile" %}">Bienvenido <div class="text-primary">{{user.username}}</div></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{% url 'cerrar_sesion' %}">Cerrar sesión</a>
+                            <a class="nav-link text-red" href="{% url 'cerrar_sesion' %}">Cerrar sesión</a>
                         </li>
                     {% else %}
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{% url 'login' %}">Iniciar sesión</a>
+                            <a class="nav-link text-red" href="{% url 'login' %}">Iniciar sesión</a>
                         </li>
                     {% endif %}
                     {% if not user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{% url 'register' %}">Registrarse</a>
+                            <a class="nav-link text-red" href="{% url 'register' %}">Registrarse</a>
                         </li>
                     {% endif %}
-                    <div class="user-icons d-flex mb-2">
-                        <a href="{% url 'carrito' %}">
-                            <div class="cart"><i class="bi bi-cart-fill" style = "color:white;"></i></div>
-                        </a>
-                    </div>
                 </ul>
-                <div class="search-and-icons">
-
-
-                    
+                <div class="user-icons">
+                    <a href="{% url 'carrito' %}">
+                        <div class="cart"><i class="bi bi-cart-fill" style="color:red;"></i></div>
+                    </a>
                 </div>
             </div>
         </div>
