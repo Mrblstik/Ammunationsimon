@@ -113,12 +113,12 @@ def add_to_cart(request, arma_id):
     cart.items.add(cart_item)
     messages.success(request, f'{arma.nomb_arma} fue añadido a tu carrito.')
 
-    return redirect('cart_detail')
+    return redirect('carrito')
 
 @login_required
-def cart_detail(request):
+def carrito(request):
     cart, created = Cart.objects.get_or_create(usuario=request.user)
-    return render(request, 'Ammunation/cart_detail.html', {'cart': cart})
+    return render(request, 'Ammunation/carrito.html', {'cart': cart})
 
 @login_required
 def update_cart_item(request, item_id):
@@ -128,27 +128,27 @@ def update_cart_item(request, item_id):
         cart_item.cantidad = cantidad
         cart_item.save()
         messages.success(request, 'La cantidad fue actualizada.')
-    return redirect('cart_detail')
+    return redirect('carrito')
 
 @login_required
 def remove_from_cart(request, item_id):
     cart_item = get_object_or_404(CartItem, id=item_id)
     cart_item.delete()
     messages.success(request, 'El ítem fue eliminado del carrito.')
-    return redirect('cart_detail')
+    return redirect('carrito')
 
 @login_required
 def process_payment(request):
     cart, created = Cart.objects.get_or_create(usuario=request.user)
     if not cart.items.exists():
         messages.error(request, 'No tienes artículos en tu carrito.')
-        return redirect('cart_detail')
+        return redirect('carrito')
 
     for item in cart.items.all():
         arma = item.arma
         if item.cantidad > arma.stock:
             messages.error(request, f'No hay suficiente stock para {arma.nomb_arma}.')
-            return redirect('cart_detail')
+            return redirect('carrito')
         
         Venta.objects.create(
                 usuario=request.user,
@@ -166,7 +166,7 @@ def process_payment(request):
     cart.items.clear()
     
     messages.success(request, 'Pago realizado con éxito. Gracias por tu compra.')
-    return redirect('cart_detail')
+    return redirect('carrito')
 
 @permission_required('Ammunation.change_arma')
 def modificararma(request, id):

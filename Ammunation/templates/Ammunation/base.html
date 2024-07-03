@@ -57,7 +57,7 @@
                         </li>
                     {% endif %}
                     <div class="user-icons d-flex mb-2">
-                        <a href="{% url 'cart_detail' %}">
+                        <a href="{% url 'carrito' %}">
                             <div class="cart"><i class="bi bi-cart-fill" style = "color:white;"></i></div>
                         </a>
                     </div>
@@ -75,7 +75,7 @@
             {% if message.level == 25 %}
                 <script>
                     Swal.fire({
-                        title: '¡OPERACIÓN EXITOSA!',
+                        title: 'Exitoso',
                         text: '{{message}}',
                         icon: 'success',
                         confirmButtonText: 'Aceptar'
@@ -86,7 +86,7 @@
             {% if message.level == 30 %}
                 <script>
                     Swal.fire({
-                        title: '¡OPERACIÓN REALIZADA!',
+                        title: 'Realizado',
                         text: '{{message}}',
                         icon: 'warning',
                         confirmButtonText: 'Aceptar'
@@ -97,7 +97,7 @@
             {% if message.level == 40 %}
                 <script>
                     Swal.fire({
-                        title: '¡ERROR!',
+                        title: 'Error',
                         text: '{{message}}',
                         icon: 'error',
                         confirmButtonText: 'Aceptar'

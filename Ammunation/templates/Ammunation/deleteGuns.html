@@ -15,7 +15,7 @@
                             <div class="card-body p-4 p-md-5 bg-dark">
                                 <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-light">Eliminar arma</h3>
                                 <div class="alert alert-danger" role="alert">
-                                    <h1>¡ATENCIÓN!</h1>
+                                    <h1>Atencion</h1>
                                     <p><strong>Está a punto de eliminar una arma</strong></p>
                                     <h4>Arma a eliminar:
                                         <div>
@@ -38,25 +38,25 @@
                 </div>
             </div>
         </section>
-        <!-- The Modal -->
+       
         <div class="modal fade" id="myModal">
             <div class="modal-dialog">
                 <div class="modal-content">
 
-                    <!-- Modal Header -->
+                    
                     <div class="modal-header">
                         <h4 class="modal-title">Confirmar eliminación</h4>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
 
-                    <!-- Modal body -->
+                   
                     <div class="modal-body">
                         <p>¿Está seguro que quieres eliminar el arma?</p>
                         <p>ID: {{arma.id}}</p>
                         <p>NOMBRE: {{arma.nomb_arma}}</p>
                     </div>
 
-                    <!-- Modal footer -->
+                    
                     <div class="modal-footer">
                         <form action="" method="post" enctype="multipart/form-data">
                             {% csrf_token %}

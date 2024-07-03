@@ -74,8 +74,10 @@
 }
 
 /* Main */
-#palabrita{
-  font-family: "Jersey 10 Charted", sans-serif;
+#titulo{
+  font-family: 'Arial', sans-serif;  /* Cambiada a 'Arial' */
+  font-size: 2.5em;  /* Ajusta este valor para hacer el texto más grande */
+  font-weight: bold;  /* Hace el texto en negrita */
 }
 
 
