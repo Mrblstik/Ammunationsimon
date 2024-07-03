@@ -249,8 +249,8 @@ def editarPerfil(request):
     datos = {"form": form}
     return render(request, 'Ammunation/editarPerfil.html', datos)
 
-def forgetPassword(request):
-    return render(request,'Ammunation/forgetPassword.html')
+def olvidarcontraseña(request):
+    return render(request,'Ammunation/olvidarcontraseña.html')
 
 def gatoRandom(request):
     return render(request,'Ammunation/gatoRandom.html')
